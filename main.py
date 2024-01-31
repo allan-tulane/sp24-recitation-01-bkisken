@@ -71,13 +71,14 @@ def time_search(search_fn, mylist, key):
 	  the number of milliseconds it takes to run this
 	  search function on this input.
 	"""
-	### TODO
+
 	start_time = time.time()
 	search_fn(mylist, key)
 	end_time = time.time()
-	return (end_time - start_time) * 1000
-
-	###
+	elapsedTime = (end_time - start_time) * 1000
+	
+	return elapsedTime
+	
 
 def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
 	"""
@@ -94,7 +95,7 @@ def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
 	  indicating the number of milliseconds it takes
 	  for each method to run on each value of n
 	"""
-	### TODO
+	
 	results = []
 
 	for size in sizes: 
@@ -104,8 +105,8 @@ def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
 		results.append((size, linear_search_time, binary_search_time))
 
 	return results
-	print_results(compare_search())
-	###
+
+
 
 def print_results(results):
 	""" done """
@@ -113,4 +114,5 @@ def print_results(results):
 							headers=['n', 'linear', 'binary'],
 							floatfmt=".3f",
 							tablefmt="github"))
-
+	
+print_results(compare_search())
